@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Thought for Today</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Arial, sans-serif;
+            background: #ffffff;
+            color: #333333;
+        }
+
+        .widget {
+            width: 100%;
+            max-width: 650px;
+            padding: 30px 35px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 22px;
+            color: #555555;
+        }
+
+        .quote {
+            font-size: 21px;
+            line-height: 1.55;
+            font-weight: 500;
+            color: #222222;
+            margin: 0 auto;
+            max-width: 580px;
+        }
+
+        .accent {
+            margin: 20px auto 0;
+            width: 35px;
+            height: 2px;
+            background: #888888;
+            border-radius: 5px;
+        }
+
+        .footer {
+            margin-top: 18px;
+            font-size: 12px;
+            color: #999999;
+        }
+
+        @media (max-width: 500px) {
+            .widget {
+                padding: 25px 20px;
+            }
+
+            .quote {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="widget">
+
+        <div class="title">
+            ✨ A Little Thought for Today
+        </div>
+
+        <div class="quote" id="quote"></div>
+
+        <div class="accent"></div>
+
+        <div class="footer">
+            Take it one task at a time.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const quotes = [
+
+            "Small progress is still progress. You don't have to move mountains every day.",
+
+            "Do what you can today. The rest can wait until after coffee. ☕",
+
+            "You don't need to have everything figured out. Just focus on the next step.",
+
+            "Progress doesn't always look impressive. Sometimes it looks like finally finishing that one task you've been avoiding.",
+
+            "A slow day doesn't mean a bad day. Keep going at your own pace.",
+
+            "Focus on what you can control, do your best, and let the rest unfold.",
+
+            "Believe in yourself. And, when necessary, believe in coffee too. ☕",
+
+            "Consistency will take you places that motivation can't always reach.",
+
+            "You don't have to be perfect to make meaningful progress.",
+
+            "One task at a time. One email at a time. And preferably not 37 tabs at a time.",
+
+            "Your work matters, even when no one is watching.",
+
+            "Take the pressure off. Do your best work, learn from the rest, and keep moving.",
+
+            "Rest is not wasted time. Even your brain needs a little loading screen. 😌",
+
+            "Don't underestimate what you can accomplish by simply showing up and getting started.",
+
+            "You are allowed to take a breath before tackling the next thing on your list.",
+
+            "Some days are for big achievements. Some days are just for getting through the inbox.",
+
+            "You don't need a perfect plan. Sometimes you just need to start.",
+
+            "Keep going. Future you will be glad you did.",
+
+            "A little progress today is better than a lot of planning tomorrow.",
+
+            "Do your best, ask questions when you need to, and don't forget to save your work.",
+
+            "Not every productive day looks busy. Quiet progress counts too.",
+
+            "Your to-do list is a list, not a personal attack.",
+
+            "Good work takes time. So does finding the right Excel formula.",
+
+            "You can handle today's tasks. Tomorrow's tasks can wait their turn.",
+
+            "Keep moving forward — even if today that means one small step.",
+
+            "The goal isn't to do everything at once. The goal is to keep making progress.",
+
+            "You've got this. And if you don't, there's always coffee and a good checklist.",
+
+            "Progress over perfection. Always.",
+
+            "Take a breath. Clear your head. Then tackle the next thing.",
+
+            "A productive day doesn't have to be a dramatic one."
+        ];
+
+
+        // Creates a consistent quote for each day.
+        // Everyone viewing the widget will see the same quote that day.
+
+        function getDailyQuote() {
+
+            const today = new Date();
+
+            const startOfYear = new Date(today.getFullYear(), 0, 0);
+
+            const diff = today - startOfYear;
+
+            const oneDay = 1000 * 60 * 60 * 24;
+
+            const dayOfYear = Math.floor(diff / oneDay);
+
+            return quotes[dayOfYear % quotes.length];
+        }
+
+
+        document.getElementById("quote").textContent = getDailyQuote();
+
+    </script>
+
+</body>
+</html>
